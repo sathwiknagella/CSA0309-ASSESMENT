@@ -1,0 +1,64 @@
+21. Breadth First Search (BFS)
+#include <stdio.h>
+
+#define MAX 20
+
+int main() {
+    int graph[MAX][MAX];
+    int visited[MAX] = {0};
+    int queue[MAX];
+    int n, start;
+    int front = 0, rear = -1;
+    int i, v;
+
+    printf("Enter number of vertices: ");
+    scanf("%d", &n);
+
+    printf("Enter adjacency matrix:\n");
+
+    for (i = 0; i < n; i++)
+        for (v = 0; v < n; v++)
+            scanf("%d", &graph[i][v]);
+
+    printf("Enter starting vertex: ");
+    scanf("%d", &start);
+
+    start--;
+
+    queue[++rear] = start;
+    visited[start] = 1;
+
+    printf("BFS Traversal: ");
+
+    while (front <= rear) {
+        int current = queue[front++];
+
+        printf("%d ", current + 1);
+
+        for (v = 0; v < n; v++) {
+            if (graph[current][v] == 1 &&
+                visited[v] == 0) {
+
+                queue[++rear] = v;
+                visited[v] = 1;
+            }
+        }
+    }
+
+    return 0;
+}
+INPUT:
+Enter number of vertices: 4
+Enter adjacency matrix:
+0 1 1 0
+1 0 0 1
+1 0 0 1
+0 1 1 0
+Enter starting vertex: 1
+OUTPUT:
+BFS Traversal: 1 2 3 4
+
+
+
+
+
