@@ -1,0 +1,131 @@
+10. Linked List Operations
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+struct Node *head = NULL;
+
+void insert() {
+    int value;
+    struct Node *newNode;
+
+    newNode = (struct Node *)malloc(sizeof(struct Node));
+
+    printf("Enter value: ");
+    scanf("%d", &value);
+
+    newNode->data = value;
+    newNode->next = NULL;
+
+    if (head == NULL)
+        head = newNode;
+    else {
+        struct Node *temp = head;
+
+        while (temp->next != NULL)
+            temp = temp->next;
+
+        temp->next = newNode;
+    }
+
+    printf("Node inserted.\n");
+}
+
+void deleteNode() {
+    struct Node *temp, *prev;
+    int value;
+
+    printf("Enter value to delete: ");
+    scanf("%d", &value);
+
+    temp = head;
+    prev = NULL;
+
+    while (temp != NULL && temp->data != value) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if (temp == NULL) {
+        printf("Element not found.\n");
+        return;
+    }
+
+    if (prev == NULL)
+        head = temp->next;
+    else
+        prev->next = temp->next;
+
+    free(temp);
+    printf("Node deleted.\n");
+}
+
+void display() {
+    struct Node *temp = head;
+
+    if (head == NULL) {
+        printf("List is empty.\n");
+        return;
+    }
+
+    printf("Linked List: ");
+
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+
+    printf("NULL\n");
+}
+
+int main() {
+    int choice;
+
+    while (1) {
+        printf("\n1. Insert\n2. Delete\n3. Display\n4. Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1: insert(); break;
+            case 2: deleteNode(); break;
+            case 3: display(); break;
+            case 4: exit(0);
+            default: printf("Invalid choice\n");
+        }
+    }
+
+    return 0;
+}
+INPUT/OUTPUT:
+1. Insert
+2. Delete
+3. Display
+4. Exit
+Enter choice: 1
+Enter value: 10
+Node inserted.
+
+Enter choice: 1
+Enter value: 20
+Node inserted.
+
+Enter choice: 1
+Enter value: 30
+Node inserted.
+
+Enter choice: 3
+Linked List: 10 -> 20 -> 30 -> NULL
+
+Enter choice: 2
+Enter value to delete: 20
+Node deleted.
+
+Enter choice: 3
+Linked List: 10 -> 30 -> NULL
+
+
