@@ -1,0 +1,35 @@
+2. Odd or Even Numbers
+#include <stdio.h>
+
+int main() {
+    int n, i, num;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter numbers:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &num);
+
+        if (num % 2 == 0)
+            printf("%d is Even\n", num);
+        else
+            printf("%d is Odd\n", num);
+    }
+
+    return 0;
+}
+INPUT :
+Enter number of elements: 5
+Enter numbers:
+10 15 22 31 40
+OUTPUT:
+10 is Even
+15 is Odd
+22 is Even
+31 is Odd
+40 is Even
+
+
+
+
