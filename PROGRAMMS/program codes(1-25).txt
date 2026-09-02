@@ -1,0 +1,661 @@
+1)Matrix Multiplication
+#include <stdio.h>
+int main()
+{
+    int a[10][10], b[10][10], c[10][10];
+    int r1, c1, r2, c2, i, j, k;
+    printf("Enter rows and columns of first matrix: ");
+    scanf("%d %d", &r1, &c1);
+    printf("Enter rows and columns of second matrix: ");
+    scanf("%d %d", &r2, &c2);
+    if(c1 != r2)
+    {
+        printf("Matrix multiplication not possible");
+        return 0;
+    }
+    printf("Enter first matrix:\n");
+    for(i = 0; i < r1; i++)
+        for(j = 0; j < c1; j++)
+            scanf("%d", &a[i][j]);
+    printf("Enter second matrix:\n");
+    for(i = 0; i < r2; i++)
+        for(j = 0; j < c2; j++)
+            scanf("%d", &b[i][j]);
+    for(i = 0; i < r1; i++)
+        for(j = 0; j < c2; j++)
+        {
+            c[i][j] = 0;
+            for(k = 0; k < c1; k++)
+                c[i][j] += a[i][k] * b[k][j];
+        }
+    printf("Result matrix:\n");
+    for(i = 0; i < r1; i++)
+    {
+        for(j = 0; j < c2; j++)
+            printf("%d ", c[i][j]);
+        printf("\n");
+    }
+
+    return 0;
+}
+
+2)Odd or Even Numbers:
+CODE: 
+   #include <stdio.h>
+   int main()
+{
+    int n, i, a[50];
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    printf("Enter elements: ");
+    for(i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+    for(i = 0; i < n; i++)
+    {
+        if(a[i] % 2 == 0)
+            printf("%d is Even\n", a[i]);
+        else
+            printf("%d is Odd\n", a[i]);
+    }
+    return 0;
+}
+
+
+3)Factorial Without Recursion
+CODE:
+  #include <stdio.h>
+int main()
+{
+    int n, i;
+    long long fact = 1;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    for(i = 1; i <= n; i++)
+        fact = fact * i;
+    printf("Factorial = %lld", fact);
+    return 0;
+}
+
+4)Fibonacci Series Without Recursion
+CODE:
+#include <stdio.h>
+int main()
+{
+    int n, i;
+    int a = 0, b = 1, c;
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+    printf("Fibonacci Series: ");
+    for(i = 1; i <= n; i++)
+    {
+        printf("%d ", a);
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    return 0;
+}
+
+5)Factorial Using Recursion:
+CODE:
+  #include <stdio.h>
+long long factorial(int n)
+{
+    if(n == 0 || n == 1)
+        return 1;
+    return n * factorial(n - 1);
+}
+int main()
+{
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    printf("Factorial = %lld", factorial(n));
+    return 0;
+}
+
+6)
+Fibonacci Series Using Recursion
+CODE:
+  #include <stdio.h>
+int fibonacci(int n)
+{
+    if(n == 0)
+        return 0;
+    if(n == 1)
+        return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+int main()
+{
+    int n, i;
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+    printf("Fibonacci Series: ");
+    for(i = 0; i < n; i++)
+        printf("%d ", fibonacci(i));
+    return 0;
+}
+
+7)Array Operations – Insert, Delete, Display
+  CODE:
+  #include <stdio.h>
+int main()
+{
+    int a[50], n, i, pos, value;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    printf("Enter elements: ");
+    for(i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+    printf("Enter position to insert: ");
+    scanf("%d", &pos);
+    printf("Enter value: ");
+    scanf("%d", &value);
+    for(i = n; i >= pos; i--)
+        a[i] = a[i - 1];
+    a[pos - 1] = value;
+    n++;
+    printf("Array after insertion: ");
+    for(i = 0; i < n; i++)
+        printf("%d ", a[i]);
+    printf("\nEnter position to delete: ");
+    scanf("%d", &pos);
+    for(i = pos - 1; i < n - 1; i++)
+        a[i] = a[i + 1];
+    n--;
+    printf("Array after deletion: ");
+    for(i = 0; i < n; i++)
+        printf("%d ", a[i]);
+    return 0;
+}
+
+8)Linear Search
+ CODE;
+  #include <stdio.h>
+int main()
+{
+    int a[50], n, i, key, found = 0;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    printf("Enter elements: ");
+    for(i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+    for(i = 0; i < n; i++)
+    {
+        if(a[i] == key)
+        {
+            printf("Element found at position %d", i + 1);
+            found = 1;
+            break;
+        }
+    }
+    if(found == 0)
+        printf("Element not found");
+    return 0;
+}
+
+9)Binary Search
+CODE;
+  #include <stdio.h>
+int main()
+{
+    int a[50], n, key;
+    int low, high, mid, found = 0;
+    int i;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    printf("Enter elements in sorted order: ");
+    for(i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+    low = 0;
+    if(found == 0)
+        printf("Element not found");
+
+    return 0;
+}
+
+10)Linked List Operations
+ CODE:
+ #include <stdio.h>
+#include <stdlib.h>
+struct Node
+{
+    int data;
+    struct Node *next;
+};
+int main()
+{
+    struct Node *head = NULL, *newNode, *temp;
+    int n, i, value;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    printf("Linked List: ");
+    temp = head;
+    while(temp != NULL)
+    {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    return 0;
+}
+
+11)Stack – PUSH, POP, PEEK
+CODE:
+ #include <stdio.h>
+int s[5],top=-1;
+int main(){
+    int ch,x;
+    while(1){
+        printf("\n1.Push 2.Pop 3.Peek 4.Exit: ");
+        scanf("%d",&ch);
+        if(ch==1){
+            scanf("%d",&x);
+            s[++top]=x;
+        }
+        else if(ch==2)
+            printf("Popped=%d\n",s[top--]);
+        else if(ch==3)
+            printf("Top=%d\n",s[top]);
+        else break;
+    }
+    return 0;
+}
+
+12)Infix to Postfix
+ CODE:
+  #include <stdio.h>
+#include <ctype.h>
+char s[20]; int top=-1;
+
+int p(char c){
+    if(c=='+'||c=='-') return 1;
+    if(c=='*'||c=='/') return 2;
+    return 0;
+}
+int main(){
+    char a[20],c; int i;
+    scanf("%s",a);
+
+    for(i=0;a[i];i++){
+        c=a[i];
+        if(isalnum(c)) printf("%c",c);
+        else{
+            while(top>=0 && p(s[top])>=p(c))
+                printf("%c",s[top--]);
+            s[++top]=c;
+        }
+    }
+    while(top>=0) printf("%c",s[top--]);
+    return 0;
+}
+
+13)
+Queue
+CODE:
+#include <stdio.h>
+int q[5],f=0,r=-1;
+int main(){
+    int ch,x,i;
+    while(1){
+        printf("\n1.Enqueue 2.Dequeue 3.Display 4.Exit: ");
+        scanf("%d",&ch);
+        if(ch==1){
+            scanf("%d",&x);
+            q[++r]=x;Tree Traversals
+        }
+        else if(ch==2)
+            printf("Deleted=%d\n",q[f++]);
+        else if(ch==3){
+            for(i=f;i<=r;i++) printf("%d ",q[i]);
+        }
+        else break;
+    }
+    return 0;
+}
+
+14) 
+Tree Traversals
+CODE:
+ #include <stdio.h>
+#include <stdlib.h>
+
+struct N{
+    int d;
+    struct N *l,*r;
+};
+
+struct N* n(int x){
+    struct N*t=malloc(sizeof(struct N));
+    t->d=x;t->l=t->r=NULL;
+    return t;
+}
+
+void in(struct N*t){
+    if(t){in(t->l);
+}
+void pre(struct N*t){
+    if(t){printf("%d ",t->d);
+}
+void post(struct N*t){
+    if(t){post(t->l);
+}
+
+int main(){
+    struct N*r=n(1);
+    r->l=n(2)
+    r->l->l=n(4)
+    printf("Inorder: ")
+    printf("\nPreorder: ")
+    printf("\nPostorder: ");
+
+15)Hashing – Linear Probing
+CODE:
+ #include <stdio.h>
+int main()
+{
+    int hash[10], n, key, index, i;
+    for(i = 0; i < 10; i++)
+        hash[i] = -1;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    printf("Enter elements: ");
+    for(i = 0; i < n; i++)
+    {
+  
+    16) scanf("%d", &key);
+        index = key % 10;
+        while(hash[index] != -1)
+            index = (index + 1) % 10;
+        hash[index] = key;
+    }
+    printf("\nHash Table:\n");
+
+    for(i = 0; i < 10; i++)
+        printf("%d -> %d\n", i, hash[i]);
+
+    return 0;
+}
+
+
+19)HEAP SORT
+CODE:
+#include <stdio.h>
+void heapify(int a[], int n, int i)
+{
+    int largest, left, right, temp;
+    largest = i;
+    left = 2 * i + 1;
+    right = 2 * i + 2;
+    if(left < n && a[left] > a[largest])
+        largest = left;
+    if(right < n && a[right] > a[largest])
+        largest = right;
+
+    if(largest != i)
+    {
+        temp = a[i];
+        a[i] = a[largest];
+        a[largest] = temp;
+
+        heapify(a, n, largest);
+    }
+}
+
+21)int main()
+{
+    int a[20], n, i, temp;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    printf("Enter elements: ");
+    for(i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+    for(i = n / 2 - 1; i >= 0; i--)
+        heapify(a, n, i);
+    for(i = n - 1; i > 0; i--)
+    {
+        temp = a[0];
+        a[0] = a[i];
+        a[i] = temp;
+
+        heapify(a, i, 0);
+    }
+    printf("Sorted array: ");
+    for(i = 0; i < n; i++)
+        printf("%d ", a[i]);
+    return 0;
+}
+
+22)Graph Traversal – DFS
+CODE:
+ #include <stdio.h>
+int a[10][10], visited[10], n;
+void dfs(int v)
+{
+    int i;
+    printf("%d ", v);
+    visited[v] = 1;
+    for(i = 0; i < n; i++)
+    {
+        if(a[v][i] == 1 && visited[i] == 0)
+            dfs(i);
+    }
+}
+int main()
+{
+    int i, j, start;
+    printf("Enter number of vertices: ");
+    scanf("%d", &n);
+    printf("Enter adjacency matrix:\n");
+    for(i = 0; i < n; i++)
+        for(j = 0; j < n; j++)
+            scanf("%d", &a[i][j]);
+    printf("Enter starting vertex: ");
+    scanf("%d", &start);
+    printf("DFS Traversal: ");
+    dfs(start);
+    return 0;
+}
+23)Dijkstra's Shortest Path Algorithm
+CODE:
+ #include <stdio.h>
+#define INF 999
+int main()
+{
+    int cost[10][10], dist[10], visited[10];
+    int n, source, i, j, min, u;
+    printf("Enter number of vertices: ");
+    scanf("%d", &n);
+    printf("Enter cost matrix:\n");
+    for(i = 0; i < n; i++)
+        for(j = 0; j < n; j++)
+            scanf("%d", &cost[i][j]);
+    printf("Enter source vertex: ");
+    scanf("%d", &source);
+    for(i = 0; i < n; i++)
+    {
+        dist[i] = cost[source][i];
+        visited[i] = 0;
+    }
+    dist[source] = 0;
+    for(i = 0; i < n; i++)
+    {
+        min = INF;
+        u = -1;
+
+        for(j = 0; j < n; j++)
+        {
+            if(!visited[j] && dist[j] < min)
+            {
+                min = dist[j];
+                u = j;
+            }
+        }
+
+        if(u == -1)
+            break;
+
+     
+
+    return 0;
+}
+
+24)  Minimum Spanning Tree – Prim's Algorithm
+CODE:
+ #include <stdio.h>
+#define INF 999
+
+int main()
+{
+    int cost[10][10], selected[10] = {0};
+    int n, i, j, edges = 0;
+    int min, x, y, total = 0;
+
+    printf("Enter number of vertices: ");
+    scanf("%d", &n);
+
+    printf("Enter cost matrix:\n");
+
+    for(i = 0; i < n; i++)
+        for(j = 0; j < n; j++)
+            scanf("%d", &cost[i][j]);
+
+    selected[0] = 1;
+
+    printf("Edges in MST:\n");
+
+    while(edges < n - 1)
+    {
+        min = INF;
+        x = y = -1;
+
+        for(i = 0; i < n; i++)
+        {
+            if(selected[i])
+            {
+                for(j = 0; j < n; j++)
+                {
+                    if(!selected[j] && cost[i][j] < min)
+                    {
+                        min = cost[i][j];
+                        x = i;
+                        y = j;
+                    }
+                }
+            }
+        }
+
+        printf("%d - %d = %d\n", x, y, min);
+
+        total += min;
+        selected[y] = 1;
+        edges++;
+    }
+
+    printf("Minimum Cost = %d\n", total);
+
+    return 0;
+}
+
+
+25)Minimum Spanning Tree – Kruskal's Algorithm
+Code#include <stdio.h>
+
+struct Edge
+{
+    int u, v, w;
+};
+
+int parent[10];
+
+int find(int x)
+{
+    while(parent[x] != x)
+        x = parent[x];
+
+    return x;
+}
+
+int main()
+{
+    struct Edge e[20], temp;
+    int n, m, i, j, a, b;
+    int count = 0, total = 0;
+
+    printf("Enter number of vertices: ");
+    scanf("%d", &n);
+
+    printf("Enter number of edges: ");
+    scanf("%d", &m);
+
+    printf("Enter edges (source destination weight):\n");
+
+    for(i = 0; i < m; i++)
+        scanf("%d %d %d", &e[i].u, &e[i].v, &e[i].w);
+
+    for(i = 0; i < n; i++)
+        parent[i] = i;
+
+    for(i = 0; i < m - 1; i++)
+    {
+        for(j = i + 1; j < m; j++)
+        {
+            if(e[i].w > e[j].w)
+            {
+                temp = e[i];
+                e[i] = e[j];
+                e[j] = temp;
+            }
+        }
+    }
+
+    printf("Edges in MST:\n");
+
+    for(i = 0; i < m && count < n - 1; i++)
+    {
+        a = find(e[i].u);
+        b = find(e[i].v);
+
+        if(a != b)
+        {
+            printf("%d - %d = %d\n",
+                   e[i].u, e[i].v, e[i].w);
+
+            total += e[i].w;
+            parent[a] = b;
+            count++;
+        }
+    }
+
+    printf("Minimum Cost = %d\n", total);
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
